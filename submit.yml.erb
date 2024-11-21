@@ -43,12 +43,12 @@ batch_connect:
         ## For the RHEL7 nodes
         export SING_BINDS="$SING_BINDS -B /usr/local/pmix -B /usr/local/hwloc -B /usr/local/ucx-1.13.0 -B /usr/local/ucx-1.10.0 -B /usr/local/ucx-1.8.1 -B /usr/local/spack -B /usr/local/spack_v20d1 -B /usr/local/libevent/ " 
         # lumerical specifically needs a certain library available and mount from the system in order to run the license utility
-        export SING_BINDS="$SING_BINDS --bind /lib64/ld-lsb-x86-64.so.3 "
+        <%- if version == "lumerical/2021r2" %>
+            export SING_BINDS="$SING_BINDS --bind /lib64/ld-lsb-x86-64.so.3 "
+        <%- end %>
     elif [[ $HOST_OS =~ "el8" ]]; then
         ## For the RHEL8 nodes
         export SING_BINDS="$SING_BINDS -B /usr/local/pmix -B /usr/local/hwloc -B /usr/local/libevent -B /usr/local/spack_v20d1 -B /usr/local/ucx/ " 
-        # lumerical specifically needs a certain library available and mount from the system in order to run the license utility
-        export SING_BINDS="$SING_BINDS --bind /lib64/ld-linux-x86-64.so.2:/lib64/ld-lsb-x86-64.so.3 "
     fi
 
     # only bind /kellogg is individual is part of kellogg group
