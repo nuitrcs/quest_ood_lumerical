@@ -21,9 +21,13 @@ batch_connect:
     HOST_OS=`uname -r`
     # Where is this container
     if [[ $HOST_OS =~ "el8" ]]; then
-        export container_image=/software/rhel8/quest_ondemand/desktops/xfce/quest-ood-xfce-desktop.sif
+        export container_image=/software/rhel8/quest_ondemand/quest_ood_ansys_lumerical/ansys-lumerical-ubi810-ood.sif
     elif [[ $HOST_OS =~ "el7" ]]; then
-        export container_image=/software/openondemand/matlab/matlab-ood.sif
+        <%- if version == "lumerical/2024r1" %>
+            export container_image=/software/rhel8/quest_ondemand/quest_ood_ansys_lumerical/ansys-lumerical-ubi810-ood.sif
+        <%- else %>
+            export container_image=/software/openondemand/matlab/matlab-ood.sif
+        <%- end %>
     else
         echo "Host OS not recognized, no container found"
     fi
