@@ -7,9 +7,11 @@ role: batch_connect
 description: |
   This app will launch the [Lumerical] GUI on the [Quest cluster].
 
-  Lumerical on Quest is restricted to authorized groups only, contact quest-help@northwestern.edu for assistance getting added to the Lumerical license if your PI is one of Professor Hooman, Odom, Swearer, Stern, or Schatz.
+  Lumerical on Quest is restricted to authorized groups only, contact quest-help@northwestern.edu for assistance getting added to the Lumerical license if your PI is one of Professor Hooman, Odom, Swearer, Stern, Schatz or Barton.
 
-  Once you have been added, you can specify the license location (server `questlicense.ci.northwestern.edu`, port 40000) either using the graphical interface or [non-graphically].
+  Once you have been added, you can specify the license location (server `questlicense2.quest.northwestern.edu`, port 40000) either using the graphical interface or [non-graphically].
+
+  If you need to switch back and forth between Lumerical, then update the file `~/.config/Lumerical/License.ini` and use domain=1 for `lumerical/2024r1` and domain=2 for `lumerical/2021r2`.
 
   [Lumerical]: https://www.lumerical.com/
   [Quest cluster]: https://www.it.northwestern.edu/departments/it-services-support/research/computing/quest/index.html
